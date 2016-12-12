@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Prints by MichaelLampe</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/MichaelLampe/Prints">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Prints</h1>
+            <h2>Minimal tracking javascript library to fully track user sessions.</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/MichaelLampe/Prints/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/MichaelLampe/Prints/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a id="prints" class="anchor" href="#prints" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prints</h1>
+
+<h4>
+<a id="the-minimal-user-tracking-library" class="anchor" href="#the-minimal-user-tracking-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The minimal user tracking library.</h4>
+
+<p>A simple, vanilla user tracking library.  Supports adding hooks to any element in the DOM, which then can be exported to both PNG and JSON formats for downstream use.</p>
+
+<p>To use, simply include <code>&lt;script src="prints.js"&gt;&lt;/script&gt;</code> and setup your loged events</p>
+
+<h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
+
+<h4>
+<a id="hello-world" class="anchor" href="#hello-world" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>"Hello world"</h4>
+
+<p>Create a new prints that should POST logs to port 5000 on localhost</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> points <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Prints</span>(<span class="pl-s"><span class="pl-pds">"</span>http://localhost:5000<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Whenever the user clicks, create circle with diameter 10 around that location.  Also, log the information in a time series.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">points</span>.<span class="pl-en">createNewTracker</span>(<span class="pl-c1">document</span>, <span class="pl-s"><span class="pl-pds">"</span>onclick<span class="pl-pds">"</span></span>, {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>red<span class="pl-pds">"</span></span>, size<span class="pl-k">:</span> <span class="pl-c1">10</span>, shape<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>circle<span class="pl-pds">"</span></span>, logEvent<span class="pl-k">:</span> <span class="pl-c1">true</span>});</pre></div>
+
+<p>When the user tries to exit the page, send their interactions to a safe place.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">window</span>.<span class="pl-en">onbeforeunload</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+  <span class="pl-smi">points</span>.<span class="pl-smi">sendLoggedPng</span>
+  <span class="pl-smi">points</span>.<span class="pl-smi">sendLoggedEvents</span>
+}</pre></div>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/MichaelLampe">MichaelLampe</a> can be found on <a href="https://github.com/MichaelLampe/Prints">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>

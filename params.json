@@ -1,0 +1,6 @@
+{
+  "name": "Prints",
+  "tagline": "Minimal tracking javascript library to fully track user sessions.",
+  "body": "# Prints\r\n#### The minimal user tracking library.\r\n\r\nA simple, vanilla user tracking library.  Supports adding hooks to any element in the DOM, which then can be exported to both PNG and JSON formats for downstream use.\r\n\r\nTo use, simply include `<script src=\"prints.js\"></script>` and setup your loged events\r\n\r\n### Example\r\n#### \"Hello world\"\r\nCreate a new prints that should POST logs to port 5000 on localhost\r\n```JAVASCRIPT\r\nvar points = new Prints(\"http://localhost:5000\");\r\n```\r\n\r\nWhenever the user clicks, create circle with diameter 10 around that location.  Also, log the information in a time series.\r\n```JAVASCRIPT\r\npoints.createNewTracker(document, \"onclick\", {color: \"red\", size: 10, shape: \"circle\", logEvent: true});\r\n```\r\n\r\nWhen the user tries to exit the page, send their interactions to a safe place.\r\n```JAVASCRIPT\r\nwindow.onbeforeunload = function() {\r\n  points.sendLoggedPng\r\n  points.sendLoggedEvents\r\n}\r\n```\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
