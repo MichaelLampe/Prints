@@ -24,3 +24,6 @@ window.onbeforeunload = function() {
   points.sendLoggedEvents
 }
 ```
+
+### Selected Image
+![Hi using tracking library](https://github.com/MichaelLampe/Prints/blob/master/examples/screenshot.png)
